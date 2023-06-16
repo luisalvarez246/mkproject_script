@@ -1,12 +1,27 @@
 #! /bin/sh
 
-if [ ! -f index.html ]
+arguments=$#
+projectdir=$1
+n=1
+
+if [ $arguments -gt $n ]
+	then
+		echo "Error too many arguments. You may either:\nadd a name with no spaces to your project folder (ej: mkproject project_1)\nor leave it blank to create the project at the current repository"
+elif [ $arguments -eq $n ] && [ ! -f index.html ]
+	then
+		mkdir $projectdir html css js resources imgs audio
+		touch index.html style.css index.js
+		mv style.css ./css
+		mv index.js ./js
+		mv imgs audio ./resources
+		mv './css' './js' './resources' 'index.html' './html' $projectdir
+elif [ ! -f index.html ]
 	then
 		mkdir html css js resources imgs audio
 		touch index.html style.css index.js
 		mv style.css ./css
 		mv index.js ./js
 		mv imgs audio ./resources
-	else
-		echo "project already created"
-	fi
+else
+	echo "project already created"
+fi
