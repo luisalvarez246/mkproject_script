@@ -26,8 +26,14 @@ The following structure is created in the current directory upon executing the c
 
 You can clone or copy the script mkproject.sh in the directory in which you need to create the project into, and the execute it as:
 
+The following command creates the files and directories within the directory we call it from.
 ```sh
 ./mkproject
+```
+
+The following command creates the files and directories within a new directory project_name.
+```sh
+./mkproject project_name
 ```
 
 Note: For this method you would have to copy the script into the project directory for each new project.
